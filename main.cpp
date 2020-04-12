@@ -1,43 +1,64 @@
-#include <iostream>
-#include <vector>
-#include <deque>
-#include <list>
-#include <set> // set and multiset
-#include <map> // map and multimap
-#include <unordered_set> //unordered set/multiset
-#include <unordered_map> // unordered map/multimap
-#include <iterator>
 #include <algorithm>
-#include <numeric>
+#include <deque>
 #include <functional>
-
-void vectorDemo();
+#include <iostream>
+#include <iterator>
+#include <list>
+#include <map>  // map and multimap
+#include <numeric>
+#include <set>            // set and multiset
+#include <unordered_map>  // unordered map/multimap
+#include <unordered_set>  //unordered set/multiset
+#include <vector>
 
 using namespace std;
 
-bool f(int x, int y) {
-    return x > y;
-}
-
 void setDemo();
 void vectorDemo();
+void mapDemo();
+void problemDemo();
 
-void print(vector<int> vec) {
-//    for (auto i = vec.begin(); i != vec.end(); i++) {
-//        cout << *i << " ";
-//    }
-    for (auto i : vec) {
-        cout << i << " ";
+int main() {
+    // vectorDemo();
+    // setDemo();
+    // mapDemo();
+    problemDemo();
+
+    return 0;
+}
+
+// given intervals, find the interval that a certain number n exists
+void problemDemo() {
+    set<pair<int, int> > s;
+    s.insert({10, 20});
+    s.insert({2, 3});
+    s.insert({30, 400});
+    s.insert({401, 450});
+
+    int n = 31;
+
+    auto it = s.upper_bound({n, INT_MAX});
+    it--;
+    pair<int, int> current = *it;
+    if (current.first <= n && n <= current.second) {
+        cout << "Found: " << n;
     }
 }
 
-int main() {
-//    vectorDemo();
-    setDemo();
+void mapDemo() {
+    map<int, int> a;
+    a[1] = 100;
+    a[2] = 2000;
+    a[3] = 400;
+    a[101010] = 30;
 
-
-
-    return 0;
+    map<char, int> b;
+    string x = "hmm";
+    for (char c : x) {
+        cout << c << " ";
+        b[c]++;
+    }
+    cout << b['m'] << endl;
 }
 
 // Insertion is logn
@@ -54,7 +75,7 @@ void setDemo() {
     // Iterator if -1 exists, if not, return s.end()
     auto it = s.find(4);
     if (it == s.end()) {
-        cout << "not present" << endl ;
+        cout << "not present" << endl;
     } else {
         cout << "is present" << endl;
         cout << *it << endl;
@@ -65,14 +86,25 @@ void setDemo() {
     cout << "it2: " << *it2 << " it3: " << *it3 << endl;
     cout << *s.begin() << endl;
     cout << *s.end();
+}
 
+void print(vector<int> vec) {
+    //    for (auto i = vec.begin(); i != vec.end(); i++) {
+    //        cout << *i << " ";
+    //    }
+    for (auto i : vec) {
+        cout << i << " ";
+    }
+}
+bool f(int x, int y) {
+    return x > y;
 }
 
 // Insertion is o(n)
 void vectorDemo() {
     vector<int> a = {11, 2, 3, 14, 4};
     cout << a[1] << endl;
-//    sort(a.begin(), a.end());
+    //    sort(a.begin(), a.end());
     cout << a[1] << endl;
 
     bool present = binary_search(a.begin(), a.end(), 14);
@@ -85,12 +117,11 @@ void vectorDemo() {
 
     // a -> 2, 3, 4, 11, 14, 100, 100, 100, 100
 
-    auto iter = lower_bound(a.begin(), a.end(), 100); // first element
-    auto iter2 = upper_bound(a.begin(), a.end(), 100); // >
+    auto iter = lower_bound(a.begin(), a.end(), 100);   // first element
+    auto iter2 = upper_bound(a.begin(), a.end(), 100);  // >
 
     cout << *iter << " " << *iter2 << endl;
     cout << iter2 - iter << endl;
-
 
     // custom comparator
     sort(a.begin(), a.end(), f);
@@ -108,4 +139,3 @@ void vectorDemo() {
     }
     print(a);
 }
-
