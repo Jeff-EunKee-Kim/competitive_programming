@@ -24,7 +24,7 @@ int main() {
         if (sameSkillTeam - differentSkillTeam > 1) {
             maxTeam ++; 
         }
-        cout << maxTeam; 
+        cout << maxTeam << endl;; 
         t--;
     }
 }

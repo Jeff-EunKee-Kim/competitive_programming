@@ -18,7 +18,38 @@ void vectorDemo();
 void mapDemo();
 void problemDemo();
 
+class Node {
+    public:
+        int data;
+        Node * next;
+        Node(int val) {
+            data = val; 
+        }
+};
+
 int main() {
+    int num = 3; 
+    int *pNum = &num; 
+
+    cout << num << endl;
+    cout << pNum << endl; 
+    cout << *pNum << endl; 
+
+
+
+    // Node *head = NULL;
+    // Node *second = NULL;
+    // Node *third = NULL;
+
+    // head = new Node(3);
+    // head-> next = second; 
+
+    // while (head != NULL) {
+    //     cout << head->data << " ";
+    //     head = head->next;
+    // }
+
+
     // vectorDemo();
     // setDemo();
     // mapDemo();
