@@ -29,7 +29,7 @@ int main() {
         left--;
         right++; 
     }
-    
+
     if (left == -1) {
         while (right < n) {
             if(cities[right] == 1) {

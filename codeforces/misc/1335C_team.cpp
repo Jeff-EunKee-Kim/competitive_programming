@@ -18,6 +18,7 @@ int main() {
             skillMap[skill]++; 
             maxTeam = max(maxTeam, skillMap[skill]); 
         }
+
         int differentSkillTeam = skillMap.size() - 1; 
         int sameSkillTeam = maxTeam; 
         maxTeam = min(maxTeam, differentSkillTeam); 

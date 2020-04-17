@@ -24,6 +24,7 @@ int main() {
             currentMax++; 
             left--;
         }
+
         while (right <n-1 && vec[right+1] <= vec[right]) {
             currentMax++; 
             right++; 
