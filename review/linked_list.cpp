@@ -3,21 +3,21 @@
 
 using namespace std;
 
-class Node {
+class ListNode {
     public:
         int val;
-        Node* next;
-        Node() {}
-        Node(int val) {
-            this->val = val; 
-        }
-        Node(int val, Node* next) {
-            this->val = val; 
-            this->next = next;
-        }
+        ListNode* next;
+    ListNode() {}
+    ListNode(int val) {
+        this->val = val; 
+    }
+    ListNode(int val, ListNode* next) {
+        this->val = val; 
+        this->next = next;
+    }
 };
 
-void print_list(Node * n) {
+void print_list(ListNode * n) {
     while (n != NULL) {
         cout << n->val << " ";
         n = n->next;
@@ -25,9 +25,9 @@ void print_list(Node * n) {
 }
 
 int main() {
-    Node* head = new Node();
-    Node* second = new Node(2); 
-    Node* third = new Node(3, new Node(4));
+    ListNode* head = new ListNode();
+    ListNode* second = new ListNode(2); 
+    ListNode* third = new ListNode(3, new ListNode(4));
 
     head->val = 1;
     head->next = second;
