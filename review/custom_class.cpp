@@ -19,6 +19,14 @@ class Student {
         this->major = major; 
         this->age = age; 
     }
+
+    string getGrade() {
+        if (this->age > 15) {
+            return "highschool or higher"; 
+        } else {
+            return "middleschool or lower"; 
+        }
+    }
 };
 
 int main() {
@@ -35,6 +43,7 @@ int main() {
     b->name = "Mike"; 
     cout << "B's name: " << b->name << endl; 
     
+    cout << a->getGrade() << endl; 
 
 
     
