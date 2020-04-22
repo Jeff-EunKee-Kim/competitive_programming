@@ -22,6 +22,8 @@ void print_list(ListNode * n) {
         cout << n->val << " ";
         n = n->next;
     }
+    cout << endl;
+
 }
 
 int main() {
@@ -31,8 +33,18 @@ int main() {
 
     head->val = 1;
     head->next = second;
-
     second->next = third;
 
     print_list(head);
+    ListNode* dummy = head; 
+
+    while (head->next->next != NULL) {
+        head = head->next; 
+    }
+    head->next = NULL; 
+    // ListNode* pDelete = head->next; 
+    // delete pDelete;
+    free(head->next); 
+
+    print_list(dummy); 
 }
