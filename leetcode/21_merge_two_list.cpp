@@ -1,15 +1,15 @@
-/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode(int x) : val(x), next(NULL) {}
- * };
- */
+using namespace std;
+#include <vector>;
+
 class Solution {
+struct ListNode {
+    int val;
+    ListNode *next;
+    ListNode(int x) : val(x), next(NULL) {}
+};
 public:
     ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
-        ListNode* head = new ListNode(0, NULL); 
+        ListNode* head = new ListNode(0); 
         ListNode* dummy = head; 
         
         while (l1 != NULL && l2 != NULL) {
