@@ -20,6 +20,7 @@ string isBalanced(string s) {
             stack.pop(); 
         }
     }
+    
     if (stack.empty()) return "YES";
     return "NO";
 }
