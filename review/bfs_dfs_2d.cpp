@@ -21,6 +21,7 @@ void bfs(vector<vector<int>>& grid, int row, int col, vector<vector<int>>& visit
     q.push({row, col}); 
     visited[row][col] = true; 
 
+   
     int count = 0; 
     while (!q.empty()) {
         pair<int, int> curr = q.front();
@@ -29,29 +30,37 @@ void bfs(vector<vector<int>>& grid, int row, int col, vector<vector<int>>& visit
         count++; 
         int row = curr.first; 
         int col = curr.second; 
-
+        
         visited[row][col] = true; 
 
-        if (grid[row][col] == 2) {
+        if (grid[row][col] == -1) {
             cout << endl; 
             cout << "We found 2! " << endl ;
             cout << "It took this many steps: " << count << endl; 
             break; 
         }
-        cout << grid[row][col] << " "; 
+        cout << "coordinates: (" << row << "," << col << "), value: " << grid[row][col] << endl; 
+        // grid[row][col] = count;
 
-        if (row+1 < grid[0].size() && !visited[row+1][col]) {
-            q.push({row+1, col});
-        }
+
+        // top cell of curr
         if (row-1 >= 0 && !visited[row-1][col]) {
             q.push({row-1, col});
         }
+
+        // right cell of curr
         if (col + 1< grid.size()&& !visited[row][col+1]) {
             q.push({row, col+1});
         }
+
+        // left cell of curr
         if (col - 1>= 0 && !visited[row][col-1]) {
             q.push({row, col-1});
 
+        }
+        // bottom cell of curr
+        if (row+1 < grid[0].size() && !visited[row+1][col]) {
+            q.push({row+1, col});
         }
     }
 }
@@ -62,15 +71,22 @@ void dfs(vector<vector<int>>& grid, int row, int col, vector<vector<int>>& visit
         return; 
     }
     visited[row][col] = true;
+
     cout << grid[row][col] << " "; 
-    if (grid[row][col] == 2) {
+
+    if (grid[row][col] == -1) {
         cout << endl; 
         cout << "We found 2! "<< endl;
         return; 
     }
+
+    // Top
     dfs(grid, row-1, col, visited);
+    // Bottom
     dfs(grid, row+1, col, visited);
+    // Right
     dfs(grid, row, col+1, visited);
+    // Left
     dfs(grid, row, col-1, visited);
 }
 
@@ -96,14 +112,14 @@ int main() {
     }
 
     grid[1][1] = 1; 
-    grid[3][1] = 2; 
+    grid[2][1] = -1; 
 
     printGrid(grid); 
     cout << "path is: ";
  
-    // bfs(grid, 1, 1, visited); 
-    dfs(grid, 1, 1, visited); 
-    // printGrid(grid);
+    bfs(grid, 1, 1, visited); 
+    // dfs(grid, 1, 1, visited); 
+    printGrid(grid);
 }
 
 
