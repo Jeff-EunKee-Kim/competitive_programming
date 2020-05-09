@@ -19,19 +19,20 @@ int main() {
     ios::sync_with_stdio(0);
     cin.tie(0);
     
-    ll n, div, ans = 0; 
+    ll n,div = 0; 
     cin >> n; 
-    ll p = 0; 
+    ll p = 1;
+    ll ans = 1;  
     
     while (div <= 100000) {
-        div = ((pow(2,p))-1) * (pow(2,p-1));
+        div = ((2<<p) - 1) * (2<<(p-1));
+        // cout << div << endl; 
         p++;
-        if (n % div == 0) {
-            cout<< n % div ;
+        if (n >= div && n % div == 0) {
             ans = div;
         }
     }
-
+    
     cout << ans ; 
     return 0; 
 }
