@@ -26,7 +26,6 @@ int main() {
     
     while (div <= 100000) {
         div = ((2<<p) - 1) * (2<<(p-1));
-        // cout << div << endl; 
         p++;
         if (n >= div && n % div == 0) {
             ans = div;
