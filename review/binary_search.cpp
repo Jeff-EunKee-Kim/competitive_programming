@@ -18,7 +18,7 @@ int binarySearch(int arr[], int l, int r, int target) {
 int binarySearchRec(int arr[], int l, int r, int target) { 
     if (r >= l) { 
         int mid = l + (r - l) / 2; 
-  
+ 
         if (arr[mid] == target) 
             return mid; 
         if (arr[mid] > target) 
