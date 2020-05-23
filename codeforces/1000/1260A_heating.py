@@ -8,4 +8,4 @@ for _ in range(n):
     a, b = map(int, input().split())
     q = b // a
     r = b % a 
-    print((q**2) * (a - r) + r * ((q+1)**2))
+    print((q**2) * (a - r) + ((q+1)**2)) * r
