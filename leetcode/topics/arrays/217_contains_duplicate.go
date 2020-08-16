@@ -6,5 +6,6 @@ func containsDuplicate(nums []int) bool {
 		}
 		set[num] = true
 	}
+
 	return false
 }
