@@ -1,3 +1,5 @@
+package arrays
+
 func twoSum(nums []int, target int) []int {
 	seen := make(map[int]int)
 
@@ -8,6 +10,5 @@ func twoSum(nums []int, target int) []int {
 		}
 		seen[num] = i
 	}
-
-	return []int{0, 0}
+	return []int{0.0}
 }
