@@ -1,3 +1,5 @@
+package arrays
+
 func rotate(nums []int, k int) {
 	shift := k % len(nums)
 	reverse(nums)

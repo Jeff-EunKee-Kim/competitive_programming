@@ -1,3 +1,5 @@
+package arrays
+
 func maxProfit(prices []int) int {
 	total := 0
 	if len(prices) == 0 {

@@ -1,3 +1,5 @@
+package arrays
+
 func intersect(nums1 []int, nums2 []int) []int {
 	map1 := make(map[int]int)
 	ans := make([]int, 0)
